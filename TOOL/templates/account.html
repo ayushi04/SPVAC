@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{user.name}}
+{% endblock %}
+
+{% block active_account %}
+active
+{% endblock %}
+
+{% block content %}
+      <div class="container jumbotron" style="background-color: rgba(0.7,0.7,0.7,0.2)">
+        <h2 class="text-{{ color }}">{{user.name}}</h2>
+        <p class="mb-4">
+          Update your account details here.
+        </p>
+        <form action="{{ url_for('controllers.account') }}" method="POST">
+          <div class="form-group">
+            <label for="oldpassword">Old Password</label>
+            <input name="oldpassword" type="password" class="form-control" id="oldpassword" aria-describedby="oldpassword" placeholder="Old password">
+          </div>
+          <div class="form-group">
+            <label for="newpassword">New Password</label>
+            <input name="newpassword" type="password" class="form-control" id="newpassword" aria-describedby="newpassword" placeholder="New password">
+          </div>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-danger" role="alert">
+            {{ message }}
+          </div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+          <button type="submit" class="btn btn-{{ color }}">Update</button>
+        </form>
+      </div>
+{% endblock %}

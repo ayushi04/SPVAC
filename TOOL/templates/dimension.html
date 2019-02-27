@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+{% block import %}
+<!--<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />-->
+<link rel="stylesheet" href="{{ url_for('static',filename='vendor/leaflet/leaflet.css') }}"/>
+<script src="{{ url_for('static',filename='vendor/leaflet/leaflet.js') }}" ></script>
+<script src="{{ url_for('static',filename='vendor/d3/d3.v3.js') }}"></script>
+<script src="{{ url_for('static',filename='vendor/plotly/plotly-latest.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/dimension.js') }}"></script>
+{% endblock %}
+{% block active_index %}
+active
+{% endblock %}
+{% block content1 %}
+<!-- Container (Services Section) -->
+<div class="container-fluid text-center">
+<!--<h4>Dataset :  '{{ datasetPath }}'</h4>-->
+
+<h6> STARTING DIMENSION</h6>
+<div id="dimlist2">
+</div>
+<div id="filterlist">
+</div>
+<br/>
+<button id="gobutton" class="btn btn-primary"> GO</button>
+<button id="resetButton" class="btn btn-primary"> Reset Image </button>
+<div>Show Grid? <input type="radio" value="yes" name="grid">yes
+   <input type="radio" value="no" name="grid">no
+</div>
+<br/>
+<div class="row text-left" style="text-align:right display:inline;" >
+   Analyze patterns grid wise ? <input type="radio" value="yes" name="ptype">yes
+   <input type="radio" value="no" name="ptype">no
+</div>
+<div class="row text-left" style="text-align:right display:inline;" >
+   KNN <input type="text" value="" name="knn" id="knn">
+</div>
+<div class="alert_msg" style="display: none;">
+   <div class="alert alert-danger alert-dismissible" role="alert" >
+      <strong>ERROR!!</strong>
+      <p class="error_msg"></p>
+   </div>
+</div>
+<br/>
+<div id="loading"></div>
+<div class="row">
+<div class="col-md-2">
+   <h6> ADD DIMENSION</h6>
+   <div id="dimlist" class="checkbox">
+   </div>
+</div>
+<div class="col-md-10">
+   <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Heidi</a>
+      </li>
+      <!--<li class="nav-item">
+         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Closed heidi</a>
+         </li>-->
+   </ul>
+   <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+         <div class="row">
+            <div class="col-md-8">
+               <div id='parent' style="width: 600px; height: 500px;"></div>
+            </div>
+            <div class="col-md-4">
+               <div id="legend" style="overflow:scroll; height:500px;"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}  
+{% block jsimport %}
+<script>
+   //var datasetPath='{{datasetPath}}';
+   dynamicallyLoadSelectList('#filterlist', '#dimlist', '#dimlist2');
+   
+   $('#gobutton').on('click', updateImage);
+   /*$('#legend').on('click', 'td.backgroundcolor', function() {
+     var color_val=$(this).attr('bgcolor');
+     colorFilter('mapid','mapid2','parent','parent2',color_val,'heidi');
+   });
+   $('#legend2').on('click', 'td.backgroundcolor', function() {
+     var color_val=$(this).attr('bgcolor');
+     colorFilter('mapid3','mapid4','parent3','parent4',color_val,'closed');
+   });
+   */
+   $('#resetButton').on('click', resetImage);
+   //$('#tree').on('click', uploadTree);
+       
+   
+</script>
+{% endblock %}
+</body>
+</html>
+

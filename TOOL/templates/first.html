@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block import %}
+<!--
+  <link href="{{ url_for('static',filename='css/dist/googleapi_montserrat.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static',filename='css/dist/googleapi_lato.css') }}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/maincss.css') }}">
+-->
+{% endblock %}
+
+{% block active_index %}
+active
+{% endblock %}
+
+{% block content %}
+<div class="col-sm-6">
+  <h2>Different Heidi visualization techniques</h2>
+</div>
+        
+<div class="row">
+        <div class="col-md-3 col-sm-12">
+          <div class="card" style="width: 15rem;height: 10rem;">
+            <div class="card-block">
+              <h5><a href="/heidi?datasetPath={{ datasetPath }}">Basic HEIDI Visualization (MST ordering)</a></h5>
+              <p class="card-text text-center">-some info</p>
+            </div>
+          </div>
+        </div>
+        <!--
+        <div class="col-md-3 col-sm-12">
+          <div class="card" style="width: 15rem;height: 10rem;">
+            <div class="card-block">
+              <h5><a href="/heidi_closed?datasetPath={{ datasetPath }}">CLOSED HEIDI VISUALIZATION </a></h5>
+              <p class="card-text text-center">-some info</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-12">
+          <div class="card" style="width: 15rem;height: 10rem;">
+            <div class="card-block">
+        <h4><a href="/heidi_bea?datasetPath={{ datasetPath }}">BEA (HEIDI VISUALIZATION)</a></h4>
+              <p class="card-text text-center">-some info</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <div class="card" style="width: 15rem;height: 10rem;">
+            <div class="card-block">
+        <h4><a href="/heidi_closed_bea?datasetPath={{ datasetPath }}">BEA (CLOSED HEIDI VISUALIZATION) </a></h4>
+              <p class="card-text text-center">-some info</p>
+            </div>
+          </div>
+        </div>
+        -->
+
+</div>
+<!--
+<br/>
+  <div class="container-fluid text-center">
+    <h2>Visualize Data using Heidi- story mode</h2>
+    <br>
+      <div class="col-sm-3">
+        <span class="glyphicon glyphicon-certificate logo-small"></span>
+        <h4><a href="/story?datasetPath={{ datasetPath }}">Start</a></h4>
+        <p>-</p>
+      </div>
+  </div>
+  <div class="container-fluid text-center">
+    <h2>ALL 1-d subspaces</h2>
+    <br>
+    <div class="row">
+      
+      <div class="col-md-3 col-sm-12">
+          <div class="card" style="width: 15rem;height: 10rem;">
+            <div class="card-block">
+              <h5><a href="/subspace1d?datasetPath={{ datasetPath }}">All 1-d subspaces</a></h5>
+              <p class="card-text text-center">-some info</p>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-md-3 col-sm-12">
+          <div class="card" style="width: 15rem;height: 10rem;">
+            <div class="card-block">
+              <h5><a href="/subspace_all?datasetPath={{ datasetPath }}">All Images</a></h5>
+              <p class="card-text text-center">-some info</p>
+            </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+  -->
+{% endblock %}
+  

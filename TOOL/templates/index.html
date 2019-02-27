@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block active_index %}
+active
+{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger" role="alert">
+  <p>{{ message }}</p>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <div class="card" style="width: 20rem;">
+            <div class="card-block">
+              <h4 class="card-title text-center text-warning">CSV</h4>
+              <p class="card-text text-center">Upload your .csv file here and get it cleaned</p>
+              <form action="{{ url_for('controllers.upload') }}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input name="file" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                  <small id="fileHelp" class="form-text text-muted">Upload your file here and click on the upload button</small>
+                </div>
+                <div class="form-group">
+                  <label for="fix-missing">How to fix missing values?</label>
+                  <select class="form-control" id="fix-missing" name="fix">
+                    <option value="skip">Skip tuple/row</option>
+                    <option value="mean">Replace by mean</option>
+                    <option value="median">Replace by median</option>
+                    <option value="max frequent">Replace by maximum frequent value</option>
+                    <option value="max">Replace by maximum value</option>
+                    <option value="min">Replace by minimum value</option>
+                  </select>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-warning">Upload CSV</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="card" style="width: 20rem;">
+            <div class="card-block">
+              <h4 class="card-title text-center text-success">JSON</h4>
+              <p class="card-text text-center">Upload your .json file here and get it cleaned</p>
+              <form action="{{ url_for('controllers.upload') }}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input name="file" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                  <small id="fileHelp" class="form-text text-muted">Upload your file here and click on the upload button</small>
+                </div>
+                <div class="form-group">
+                  <label for="fix-missing">How to fix missing values?</label>
+                  <select class="form-control" id="fix-missing" name="fix">
+                    <option value="skip">Skip tuple/row</option>
+                    <option value="mean">Replace by mean</option>
+                    <option value="median">Replace by median</option>
+                    <option value="max frequent">Replace by maximum frequent value</option>
+                    <option value="max">Replace by maximum value</option>
+                    <option value="min">Replace by minimum value</option>
+                  </select>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success">Upload JSON</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="card" style="width: 20rem;">
+            <div class="card-block">
+              <h4 class="card-title text-center text-info">TSV</h4>
+              <p class="card-text text-center">Upload your .tsv file here and get it cleaned</p>
+              <form action="{{ url_for('controllers.upload') }}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input name="file" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                  <small id="fileHelp" class="form-text text-muted">Upload your file here and click on the upload button</small>
+                </div>
+                <div class="form-group">
+                  <label for="fix-missing">How to fix missing values?</label>
+                  <select class="form-control" id="fix-missing" name="fix">
+                    <option value="skip">Skip tuple/row</option>
+                    <option value="mean">Replace by mean</option>
+                    <option value="median">Replace by median</option>
+                    <option value="max frequent">Replace by maximum frequent value</option>
+                    <option value="max">Replace by maximum value</option>
+                    <option value="min">Replace by minimum value</option>
+                  </select>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-info">Upload TSV</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

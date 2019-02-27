@@ -1,0 +1,29 @@
+
+% readData.m
+% Reads and stores the data
+function [a] = readData(datasetPath)
+%*************************************************************************
+%handles.filename ='/home/ayushi/Desktop/CROVHD-Matlab/iris.data.txt'%uigetfile;
+%set(handles.densityPlot_togglebutton,'Value',1);
+handles.plotFlag=1;                                     % density=1 or scatter=0 
+handles.baseAxes=1;                                     % base axis for which scatter plot is drawn
+handles.bitstr=0;
+
+fid=fopen('/home/ayushi/Desktop/CROVHD-Matlab/banknote_less.csv');%iris.data.txt');%fopen(handles.filename);
+tline = fgetl(fid);
+i=1;
+
+while(length(tline)~=1 & length(tline) )
+    C=textscan(tline, '%f %f %f %f %s', 'delimiter', ',', 'EmptyValue', 0);
+    points(i,:)=double([C{1:4}]);
+    i=i+1;
+    tline = fgetl(fid);
+end
+handles.dimensions=4;
+handles.colorDist=defaultColorDist(points,0.5);
+%distribution=ndimenl(4,points,1,510,0,handles);
+%distribution=ndimenl(4,points,1.5,5,0,handles);
+fclose(fid);
+a=1;
+end
+%**************************************************************************

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block active_login %}
+active
+{% endblock %}
+
+{% block content %}
+      <div class="container jumbotron" style="background-color: rgba(0.7,0.7,0.7,0.2)">
+        <h2 class="text-success mb-4">Register</h2>
+        <form action="{{ url_for('controllers.register') }}" method="POST">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input name="name" type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input name="phone" type="text" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Enter phone number">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input name="password" type="password" class="form-control" id="password" aria-describedby="password" placeholder="Password">
+          </div>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-danger" role="alert">
+            {{ message }}
+          </div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+{% endblock %}
