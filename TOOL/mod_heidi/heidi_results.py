@@ -1,5 +1,7 @@
 from mod_heidiPreprocessing import assign_color, order_points, subspace_filter
 from mod_heidi import heidi_visualization
+from flask import session
+import _pickle as cPickle
 
 class HeidiParam:
 
@@ -11,6 +13,15 @@ class HeidiParam:
 		self.allSubspaces = ''
 		self.selectedSubspace = ''
 		self.allSubspaces_colormap = ''
+
+	def __str__(self):
+		string = "datasetPath:%s, allDims:%s, orderDims:%s, otherDims:%s, allSubspaces: %s" \
+				"selectedSubspace:%s, allSubspaces_colormap:%s " %(self.datasetPath, self.allDims, self.orderDims, self.otherDims,\
+					self.allSubspaces, self.selectedSubspace, self.allSubspaces_colormap)
+		return string
+
+	#def getCompositeImage(self):
+
 
 
 def getAllSubspaces(dataset, datasetname):
@@ -46,4 +57,4 @@ def getAllSubspaces(dataset, datasetname):
 	paramobj.allSubspaces = allSubspaces
 	paramobj.allSubspaces_colormap = {str(k):colormap[k] for k in colormap}
 
-	return paramobj
+	return paramobj, heidiImage_obj, heidiMatrix_obj
