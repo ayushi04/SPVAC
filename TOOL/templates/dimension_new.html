@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="{{ url_for('static', filename='ui-choose/ui-choose.css' ) }}" rel="stylesheet" />
+  <script src="{{ url_for('static',filename='js/dist/leaflet.js') }}" ></script>
+  <script src="{{ url_for('static',filename='js/dist/d3.v3.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/dist/plotly-latest.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/vis3.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/vis4.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/giant-wheel.js') }}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="{{ url_for('controllers.index')}}">Intensive Visual Analytics Tool</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ url_for('controllers.index') }}">Home</a></li>
+        <li><a href="{{ url_for('controllers.contact') }}">Contact Us</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group input-group">
+          <input type="text" class="form-control" placeholder="Search..">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>        
+        </div>
+      </form>
+      <!--<ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+      </ul>
+      -->
+    </div>
+  </div>
+</nav>
+  
+<div class="container text-center">    
+  <div class="row">
+    <div class="col-sm-2 well">
+      <div class="well">
+        <p><a href="#">My Profile</a>
+          {{title}}
+          {{user}}
+          {{ paramObj.allDims }}
+        </p>
+        <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+      </div>
+      <div class="well">
+        <p><a href="#">Interests</a></p>
+        <p>
+        </p>
+
+      </div>
+
+      <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <p><strong>Ey!</strong></p>
+        People are looking at your profile. Find out who.
+      </div>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div>
+    <div class="col-sm-7">
+    
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body">
+              <p contenteditable="true">Order Dimensions: &nbsp;&nbsp;&nbsp;&nbsp; 
+              <select class="ui-choose" multiple="multiple" id="orderDim">
+                {%for i in paramObj.allDims %}
+                <option value="{{i}}">{{i}}</option>
+                {%endfor%}
+              </select></p>
+              <p contenteditable="true">Other Dimensions: &nbsp;&nbsp;&nbsp;&nbsp;
+                <select class="ui-choose" multiple="multiple" id="otherDim">
+                {%for i in paramObj.allDims %}
+                <option value="{{i}}">{{i}}</option>
+                {%endfor%}
+              </select>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <p>John</p>
+           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <p>Bo</p>
+           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <p>Jane</p>
+           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+           <p>Anja</p>
+           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="well">
+            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+          </div>
+        </div>
+      </div>     
+    </div>
+    <div class="col-sm-3 well">
+      <div class="thumbnail">
+        <table border=1>
+<tr><td><b>Color</b></td><td><b>Set of subspaces</b></td><td>select</td></tr>
+{% for subspace in paramObj.allSubspaces_colormap %}
+<tr><td bgcolor={{paramObj.allSubspaces_colormap[subspace]}} class='backgroundcolor'></td><td>{{subspace}}</td><td><input type='checkbox' name='color' value='{{paramObj.allSubspaces_colormap[subspace]}}'></td></tr>
+{%endfor%}
+</table>
+        <button class="btn btn-primary">GO</button>
+        
+      </div>      
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="{{ url_for('static', filename='ui-choose/ui-choose.js' ) }}"></script>
+<script>
+
+$('.ui-choose').ui_choose();
+
+var orderDim = $('#orderDim').ui_choose();
+orderDim.click = function(value, item) {
+    console.log('click', value);
+};
+orderDim.change = function(value, item) {
+    console.log('change', value);
+};
+</script>
+</html>

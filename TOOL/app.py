@@ -11,12 +11,18 @@ app.config.from_object('config')
 
 db = SQLAlchemy(app)
 
+
 @app.errorhandler(404)
 def not_found(error):
     return render_template('404.html', user=current_user), 404
 
+#from mod_auth import models
+#from mod_datacleaning import models
+#from mod_heidiPreprocessing import models
+#from mod_heidi import models
 import models
 
 db.create_all()
+
 db.session.commit()
 print('created table!!')

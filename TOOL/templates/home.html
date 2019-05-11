@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme Company Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/dist/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/dist/bootstrap.min.css') }}">
+  <link href="{{ url_for('static',filename='css/dist/googleapi_montserrat.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static',filename='css/dist/googleapi_lato.css') }}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/maincss.css') }}">
+  <script src="{{ url_for('static',filename='js/dist/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/dist/bootstrap.min.js') }}"></script>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#myPage">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#services">SERVICES</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Container (Services Section) -->
+  <div class="container-fluid text-center">
+    <h2>select dataset</h2>
+    <br>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/banknote_less.csv">BANKNOTE</a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/data_banknote_authentication_id.csv">BANKNOTE (ALL)</a></h4>
+      <p>-</p>
+    </div>
+
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/iris.csv">Iris</a></h4>
+      <p>-</p>
+    </div>
+
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/usda-clean.csv">USDA Food dataset </a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/forestfires.csv">Forest Fire </a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/wine.csv">Wine</a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/blobs_7d_10c_500.csv">7-d Synthetic blobs</a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/moon_2d_2c_500.csv">2-d Synthetic moon </a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/winequality-red-pro-less.csv">13-d Wine quality - red </a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/winequality-red-pro.csv">13-d Wine quality - red  (ALL)</a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/moon_2d_2c_50.csv">moon-dataset (50 points)</a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/pre-processed_v3.csv">un-natural death data</a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/blobs_5d_3c_250_id.csv">synthetic dataset (5d) 250 records</a></h4>
+      <p>-</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-certificate logo-small"></span>
+      <h4><a href="/index?datasetPath=static/dataset/blobs_4d_3c_600_id.csv">synthetic dataset (4d) 600 records</a></h4>
+      <p>-</p>
+    </div>
+
+  </div>
+  <footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+    <p>By : Ayushi Gupta</a>
+    </p>
+  </footer>
+
+
+</body>
+
+</html>

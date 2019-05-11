@@ -1,0 +1,82 @@
+1)
+sudo gedit /etc/apt/apt.conf
+Add below line
+Acquire::http::proxy "http://proxy.iiit.ac.in:8080/";
+Acquire::https::proxy "https://proxy.iiit.ac.in:8080/";
+Acquire::ftp::proxy "ftp://proxy.iiit.ac.in:8080/";
+Acquire::socks::proxy "socks:http://proxy.iiit.ac.in:8080/";
+
+2) remove line 
+unset http_proxy
+unset ftp_proxy
+unset socks_proxy
+unset https_proxy
+
+from ~/.bashrc file and reload again using source ~/.bashrc
+
+3)
+set proxy in network settings
+
+4) 
+add proxy in 
+/etc/environment
+/etc/bash.bashrc - optional if nothing works
+~/.bashrc - optional if nothing works
+
+--------------
+also did changes in firefox proxy settings
+
+
+----------------
+/home/ayushi/go/src/github.com/src-d/datasets
+
+1) installing golang : apt install go...
+2) 
+3) setting up go path
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+/home/ayushi/.pga/latest.csv.gz.tmp 
+
+sudo su
+change file : sudo gedit /etc/environment
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$GOROOT/bin:/home/ayushi/go/bin"
+GOPATH="/home/ayushi/go"
+
+umask 000
+chmod g+s <directory>  //set gid 
+setfacl -d -m g::rwx /<directory>  //set group to rwx default 
+setfacl -d -m o::rx /<directory>   //set other
+getfacl /<directory> : to verify
+Output:
+
+# file: ../<directory>/
+# owner: <user>
+# group: media
+# flags: -s-
+user::rwx
+group::rwx
+other::r-x
+default:user::rwx
+default:group::rwx
+default:other::r-x
+
+
+-----------
+error:
+WARN[0023] error removing temporary file siva/latest/12/12882ba2685735b53f84819c396f206f1599bcb2.siva.tmp: remove siva/latest/12/12882ba2685735b53f84819c396f206f1599bcb2.siva.tmp: no such file or directory 
+could not get siva/latest/12/12882ba2685735b53f84819c396f206f1599bcb2.siva: could not copy to temporary file siva/latest/12/12882ba2685735b53f84819c396f206f1599bcb2.siva.tmp: could not create siva/latest/12/12882ba2685735b53f84819c396f206f1599bcb2.siva.tmp: could not create siva/latest/12: mkdir siva: permission denied
+
+-----------------------------------------
+google big query
+1) SELECT count(*) FROM `bigquery-public-data.github_repos.sample_contents` where content like '%dataframe%'
+2)
+SELECT * FROM `bigquery-public-data.github_repos.contents` where content like '%pd.dataframe%' or content like '%pandas%';
+3)
+SELECT c.content,f.repo_name,f.path FROM `bigquery-public-data.github_repos.contents` as c
+INNER JOIN `bigquery-public-data.github_repos.files` as f 
+ON c.id=f.id
+where c.content like '%pd.DataFrame%' and f.path like '%py'
+
+
+

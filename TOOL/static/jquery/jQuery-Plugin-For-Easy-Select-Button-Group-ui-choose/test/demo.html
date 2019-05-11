@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery ui-choose Plugin Examples</title>
+    <link href="../src/ui-choose.css" rel="stylesheet" />
+    <style>
+    .demo-box {
+  margin: 150px auto;
+  width: 600px;
+  padding: 20px;
+  border: 5px solid #ccc;
+  background: #fafafa;
+    }
+    
+    .demo-table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    .demo-table caption {
+        border-bottom: 1px dashed #ccc;
+        height: 40px;
+        margin-bottom: 20px;
+        font: 18px/1.2 normal 'microsoft yahei';
+    }
+    
+    .demo-table tr td {
+        padding: 8px 10px;
+        font: 16px/1.8 normal 'microsoft yahei';
+        vertical-align: top;
+    }
+    
+    .ui-input {
+        vertical-align: top;
+        height: 18px;
+        font-size: 16px;
+        line-height: 20px;
+        border: 1px solid #aaa;
+        padding: 6px 8px;
+        border-radius: 3px;
+    }
+    </style>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<select class="ui-choose" multiple="multiple" id="uc_04">
+    <option value="a">html</option>
+    <option value="b">php</option>
+    <option value="c">css</option>
+    <option value="d">javascript</option>
+    <option value="e">nodejs</option>
+</select>
+
+</body>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="../src/ui-choose.js"></script>
+<script>
+
+$('.ui-choose').ui_choose();
+
+var uc_04 = $('#uc_04').ui_choose();
+uc_04.click = function(value, item) {
+    console.log('click', value);
+};
+uc_04.change = function(value, item) {
+    console.log('change', value);
+};
+</script>
+</html>

@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
+    <title>{% block title %}{% endblock %} | Intensive Visual Analytics Tool</title>
 
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %}{% endblock %} | Visual Health Care Data Analytics</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/dist/bootstrap.min.css') }}">
+    
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+  
     {% block import %}
     {% endblock %}
   </head>
-
-
-
-<body style="background-color: #fcfcfc;">
+  <body style="background-color: #fcfcfc;">
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary bg-faded sticky-top">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -56,12 +55,12 @@
     </div>
       {% block content1 %}
       {% endblock %}
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="{{ url_for('static',filename='js/dist/jquery.min.js') }}"></script>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static',filename='js/dist/bootstrap.min.js') }}"></script>
     {% block jsimport %}
     {% endblock %}
-  </body>
-
+	</body>
 </html>

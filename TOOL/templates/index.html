@@ -24,7 +24,7 @@ active
             <div class="card-block">
               <h4 class="card-title text-center text-warning">CSV</h4>
               <p class="card-text text-center">Upload your .csv file here and get it cleaned</p>
-              <form action="{{ url_for('controllers.upload') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ url_for('datacleaning_controllers.upload') }}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                   <input name="file" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
                   <small id="fileHelp" class="form-text text-muted">Upload your file here and click on the upload button</small>
@@ -52,7 +52,7 @@ active
             <div class="card-block">
               <h4 class="card-title text-center text-success">JSON</h4>
               <p class="card-text text-center">Upload your .json file here and get it cleaned</p>
-              <form action="{{ url_for('controllers.upload') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ url_for('datacleaning_controllers.upload') }}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                   <input name="file" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
                   <small id="fileHelp" class="form-text text-muted">Upload your file here and click on the upload button</small>
@@ -80,7 +80,7 @@ active
             <div class="card-block">
               <h4 class="card-title text-center text-info">TSV</h4>
               <p class="card-text text-center">Upload your .tsv file here and get it cleaned</p>
-              <form action="{{ url_for('controllers.upload') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ url_for('datacleaning_controllers.upload') }}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                   <input name="file" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
                   <small id="fileHelp" class="form-text text-muted">Upload your file here and click on the upload button</small>

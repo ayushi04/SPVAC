@@ -1,7 +1,7 @@
 import os
 
 DEBUG = True
-PORT = 8082
+PORT = 8083
 HOST = '0.0.0.0'
 BASE_DIR = os.getcwd()
 UPLOADS_DIR = os.path.join(BASE_DIR, 'static/uploads/')
